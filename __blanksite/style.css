@@ -1,0 +1,45 @@
+html, body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    background: black;
+    color: white;
+}
+
+div {
+    border: 1px solid green;
+    width: 100px;
+}
+
+#header {
+    color: red;
+    padding: 20px;
+    position: absolute;
+    top: 50px;
+    left: 200px;
+    
+}
+
+#content {
+    color: blue;
+    width: 600px;
+    position: absolute;
+    top: 50px;
+    left: 200px;
+}
+
+
+.tile {
+    margin: 10px;
+    border: 1px solid white;
+    background: #11ffff;
+    width: 100px;
+    height: 100px;
+    float: right;
+    position: relative;
+}
+
+#footer {
+    margin: 200px;
+}
