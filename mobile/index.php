@@ -1,16 +1,19 @@
+
+
 <!DOCTYPE html>
 <html>
     <head>
-        <?php include('header.php'); ?>
+        <?php include('head.php'); ?>
     </head>
     <body>
         <div data-role="page" data-theme="a">
-            <div data-role="header">
-                <h1>DNDN</h1>
-            </div>
+            <?php include('header.php');?>
             <div data-role="content">
                 <a href="allcourses" data-role="button" data-icon="grid">All Courses</a>
                 <a href="suggest" data-role="button" data-icon="grid">Suggestions</a>
+                <a href="examplemessage?msg=Hey,%20this%20is%20a%20message" data-role="button" data-icon="grid">Example dynamic message</a>
+                <a href="sqli-whereexamples" data-role="button" data-icon="grid" data-ajax="false">sqli.where() examples</a>
+                <a href="listexample" data-role="button" data-icon="grid">Fancy List example</a>
             </div>
             <?php include('footer.php'); ?>
         </div>

@@ -1,44 +1,24 @@
-[
-    {"CPSC457":
-        {
-            "desc":"Operating Systems",
-            "periods":[
-                {
-                    "type":"Lab",
-                    "number":"01",
-                    "group":"1",
-                    "room":"TBA",
-                    "instructor":"Staff"
-                },
-                {
-                    "type":"Lecture",
-                    "number":"01",
-                    "group":"1",
-                    "room":"ENA 101",
-                    "instructor":"Mea Wang"
-                }
-            ]
-        }
-    },
-    {"CPSC471":
-        {
-            "desc":"Data Base Management Systems",
-            "periods":[
-                {
-                    "type":"Lab",
-                    "number":"01",
-                    "group":"1",
-                    "room":"TBA",
-                    "instructor":"Staff"
-                },
-                {
-                    "type":"Lecture",
-                    "number":"01",
-                    "group":"1",
-                    "room":"EDE 214",
-                    "instructor":"Mohammed"
-                }
-            ]
-        }
+Make a file courselist.php which, when passed in Semester and CourseName retrieves the details, if the course exists that semester
+And make the popup display the data in a list, see: http://jquerymobile.com/test/docs/lists/lists-formatting.html
+
+{"CPSC457":
+    {
+        "desc":"Operating Systems",
+        "periods":[
+            {
+                "type":"Lab",
+                "number":"01",
+                "group":"1",
+                "room":"TBA",
+                "instructor":"Staff"
+            },
+            {
+                "type":"Lecture",
+                "number":"01",
+                "group":"1",
+                "room":"ENA 101",
+                "instructor":"Mea Wang"
+            }
+        ]
     }
-]
+}
