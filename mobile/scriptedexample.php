@@ -10,7 +10,7 @@
             <script>
                 $(document).delegate("#g", "pageinit", function() {
                     
-                }
+                });
             </script>
             <?php include('header.php');?>
             <div data-role="content">

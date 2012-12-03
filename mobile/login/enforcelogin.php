@@ -1,5 +1,5 @@
 <?php
-    include('../sqli.php');
+    include(__DIR__ . '/../sqli.php');
     session_start();
     unset($_SESSION['loginerror']);
     if(!$_SESSION['loggedin']) {
@@ -29,6 +29,7 @@
             header('Location: http://' . $_SERVER['HTTP_HOST'] . '/projects/cpsc471project/mobile/login/');
         }
         $mysqli->close();
+        exit();
     }
     function loginError($err) {
         $_SESSION['loginerror'] = $err;
