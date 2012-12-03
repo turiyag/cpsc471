@@ -16,6 +16,7 @@
                 <a href="examplemessage?msg=Hey,%20this%20is%20a%20message" data-role="button" data-icon="grid">Example dynamic message</a>
                 <a href="sqli-whereexamples" data-role="button" data-icon="grid" data-ajax="false">sqli.where() examples</a>
                 <a href="listexample" data-role="button" data-icon="grid">Fancy List example</a>
+                <a href="login/logout" data-ajax="false" data-role="button" data-icon="delete" data-theme="c">Log out</a>
             </div>
             <?php include('footer.php'); ?>
         </div>
