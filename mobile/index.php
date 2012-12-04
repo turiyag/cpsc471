@@ -12,6 +12,7 @@
             <div data-role="content">
                 <a href="userscourses" data-ajax="false" data-role="button" data-icon="grid">What did you like?</a>
                 <a href="allcourses" data-ajax="false" data-role="button" data-icon="grid">All Courses</a>
+                <a href="selections/" data-ajax="false" data-role="button" data-icon="grid">Course Selector</a>
                 <a href="courselist?semester=Fall2012&name=CPSC457" data-role="button" data-ajax="false" data-icon="grid">Course List</a>
                 <a href="g" data-role="button" data-icon="grid">gLink</a>
                 <a href="suggest" data-role="button" data-icon="grid">Suggestions</a>
