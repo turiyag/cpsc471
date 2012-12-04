@@ -10,15 +10,23 @@
         <?php include('head.php'); ?>
     </head>
     <body>
-        <div id="semestersel" data-role="page" data-theme="a">
+        <div id="coursesel" data-role="page" data-theme="a">
             <script>
-                $(document).delegate("#semestersel", "pageinit", function() {
-        
+                $(document).delegate("#coursesel", "pageinit", function() {
+                    
                 });
             </script>
             <?php include('../header.php');?>
             <div data-role="header" data-theme="e">
-                <h1>Select a semester</h1>
+                <h1>Select a course</h1>
+            </div>
+
+            <div data-role="header" data-theme="e">
+                <h1>
+                    <?php
+                        echo($_GET['semester']);
+                    ?>
+                </h1>
             </div>
 
             <div data-role="content">
@@ -33,7 +41,7 @@
                             do {
                                  $link = $row['semester'];
                                  $human = substr($row['semester'], 0, -4) . ' ' . substr($row['semester'],-4);
-                                 print('<li><a href="coursesel?semester=' . $link . '">' . $human . '</a></li>');
+                                 print('<li><a href="coursesel?semester="' . $link . '">' . $human . '</a></li>');
                             } while ($row = $result->fetch_assoc());
                         } else {
                             print('<li>No semester could be found</li>');
