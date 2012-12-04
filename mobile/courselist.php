@@ -1,23 +1,42 @@
 <?php
     include('sqli.php');
+
     
-    foreach(array("semester","subject","number","desc") as $val) {
-        if(isset($_GET[$val])) {
-            $whereclauses[] = "$val LIKE '" . $mysqli->real_escape_string($_GET[$val]) . "%'";
-        }
-    }
+    $query = "SELECT `desc` FROM `courses`";
+    $query .= where(array("semester","name"));
     
-    $query = "SELECT `key`,`semester`,`subject`,`number`,`desc` FROM courses";
-    if (isset($whereclauses)) {
-        $query .= " WHERE " . implode(" AND ", $whereclauses);
-    }
     $result = $mysqli->query($query);
-    while ($row = $result->fetch_assoc()) {
-        $alljsons[] = json_encode($row);
+    
+    
+    
+    if($row = $result->fetch_assoc()) {
+        print('{"' . $_GET["name"] . '":{ "desc":"' . $row["desc"] . '",');
+        $subQuery='SELECT `type`, `number`, `group`, `room`, `instructor` FROM `periods` WHERE `course`="';
+        $subQuery .= $_GET["semester"] . ":" . $_GET["name"] . '"';
+        $subResult = $mysqli->query($subQuery);
+        
+        print('"periods":[');
+        
+        while($subQueryRow = $subResult->fetch_assoc()) {
+            $arrayStuff[] = '{"type":"' . $subQueryRow["type"] . '","number":"' . $subQueryRow["number"] . '","group":"' . $subQueryRow["group"] . '","room":"' . $subQueryRow["room"] . '","instructor":"' . $subQueryRow["instructor"] . '"}';
+        }
+        $subResult->free();
+        print(implode($arrayStuff, ","));
+        print("]}}");
+        
     }
-    if (isset($alljsons)) {
-        print("[" . implode(",<br />", $alljsons) . "]");
+    else {
+        print("{}");
     }
+    
+    
+    
+        
+//        print($row["desc"]);
+//        $alljsons[] = json_encode($row);
+//    if (isset($alljsons)) {
+//        print("[" . implode(",<br />", $alljsons) . "]");
+//    }
     $result->free();
     $mysqli->close();
 ?>

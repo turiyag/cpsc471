@@ -2,10 +2,7 @@
     include('sqli.php');
     
     //Set a string variable
-    $query = "SELECT * FROM";
-    //Equivalent to '$query = $query + " example"'
-    //The period is the concatenation operator
-    $query .= " example";
+    $query = "SELECT `desc` FROM `courses`";
     //Query the server, which will return a PHP Object that contains the results of the query
     $result = $mysqli->query($query);
     

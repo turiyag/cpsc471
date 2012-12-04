@@ -1,4 +1,5 @@
 <div data-role="header">
-    <h1>DNDN</h1>
-    <a href="./" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+    <h1>Course Suggestions</h1>
+    <?php if(!($_SERVER['PHP_SELF']=='/projects/cpsc471project/mobile/index.php')) { ?><a href="./" data-icon="arrow-l" data-iconpos="notext" data-rel="back">Home</a><?php } ?>
+    <?php if(!($_SERVER['PHP_SELF']=='/projects/cpsc471project/mobile/help.php')) { ?><a href="help" data-icon="info" data-iconpos="notext" class="ui-btn-right">Help</a><?php } ?>
 </div>
