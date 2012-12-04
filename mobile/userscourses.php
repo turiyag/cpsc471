@@ -31,7 +31,7 @@
                             $("#results ul").empty();
                             $.each(courses,function(name, desc) {
                                 buttonid = 'pop' + name.replace(/[^a-zA-Z0-9]+/g,'');
-                                $("#results ul").append('<li id="' + buttonid + '"><a href="likepage?course=' + name + '"><h3>' + name + '</h3><p>' + desc + '</p></a></li>');
+                                $("#results ul").append('<li id="' + buttonid + '"><a href="mycourse?course=' + name + '"><h3>' + name + '</h3><p>' + desc + '</p></a></li>');
                             });
                             $("#results ul").listview('refresh');
                         },"json");
@@ -56,14 +56,13 @@
                 <ul style="margin:20px 0px;" data-role="listview">
                     <li data-role="list-divider">My Course Ratings</li>
                     <?php
-                        $query = "SELECT course,stars FROM userscourses";
-                        $query .= " WHERE user='" . $_SESSION['username'] . "'";
+                        $query = "SELECT u.course,u.stars,c.minidesc FROM userscourses AS u, coursereqs AS c";
+                        $query .= " WHERE u.user='" . $_SESSION['username'] . "' AND c.course=u.course";
                         $result = $mysqli->query($query);
                         if($row = $result->fetch_assoc()) {
-                            echo '<li><a href="mycourse?course=' . $row['course'] . '"><h3>' . $row['course'] . '</h3><div style="float:right; margin-top:-28px;"><img src="img/' . $row['stars'] . 'star18.png" /></div></a></li>';
-                            while ($row = $result->fetch_assoc()) {
-                                echo '<li><a href="mycourse?course=' . $row['course'] . '"><h3>' . $row['course'] . '</h3><div style="float:right; margin-top:-28px;"><img src="img/' . $row['stars'] . 'star18.png" /></div></a></li>';
-                            }
+                            do {
+                                echo '<li><a href="mycourse?course=' . $row['course'] . '"><h3>' . $row['course'] . '</h3><p>' . $row['minidesc'] . '</p><div style="float:right; margin-top:-44px;"><img src="img/' . $row['stars'] . 'star18.png" /></div></a></li>';
+                            } while ($row = $result->fetch_assoc());
                         } else {
                             echo '<li>No courses rated yet. Rate courses below.</li>';
                         }
