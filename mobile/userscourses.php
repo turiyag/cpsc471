@@ -41,37 +41,45 @@
                 }
             </script>
             <?php include('header.php');?>
-            <div data-role="content">
+                <?php if (isset($_SESSION['userscoursesmsg'])) { ?>
+                        <div data-role="header" data-theme="e">
+                            <h1>Message</h1>
+                        </div>
+                        <div data-role="content">
+                            <ul style="margin:20px 0px;" data-role="listview" data-theme="d">
+                                <li>
+                                    <?php echo $_SESSION['userscoursesmsg']; ?>
+                                </li>
+                            </ul>
+                        </div>
                 <?php
-                    if (isset($_SESSION['userscoursesmsg'])) {
-                ?>
-                        <ul style="margin:20px 0px;" data-role="listview" data-theme="d">
-                            <li>
-                                <?php echo $_SESSION['userscoursesmsg']; ?>
-                            </li>
-                        </ul>
-                <?php
+                        unset($_SESSION['userscoursesmsg']); 
                     }
                 ?>
+            <div data-role="header" data-theme="e">
+                <h1>My Course Ratings and My Course Ratings and My Course Ratings</h1>
+            </div>
+            <div data-role="content">
                 <ul style="margin:20px 0px;" data-role="listview">
-                    <li data-role="list-divider">My Course Ratings</li>
+                    
                     <?php
                         $query = "SELECT u.course,u.stars,c.minidesc FROM userscourses AS u, coursereqs AS c";
                         $query .= " WHERE u.user='" . $_SESSION['username'] . "' AND c.course=u.course";
                         $result = $mysqli->query($query);
                         if($row = $result->fetch_assoc()) {
                             do {
-                                echo '<li><a href="mycourse?course=' . $row['course'] . '"><h3>' . $row['course'] . '</h3><p>' . $row['minidesc'] . '</p><div style="float:right; margin-top:-44px;"><img src="img/' . $row['stars'] . 'star18.png" /></div></a></li>';
+                                echo '<li><a href="mycourse?course=' . $row['course'] . '"><h3>' . $row['course'] . '</h3><p>' . $row['minidesc'] . '</p><span><img src="img/' . $row['stars'] . 'star18.png" /></span></a></li>';
                             } while ($row = $result->fetch_assoc());
                         } else {
                             echo '<li>No courses rated yet. Rate courses below.</li>';
                         }
                     ?>
                 </ul>
-                <hr />
-                <ul style="margin:20px 0px;" data-role="listview">
-                    <li data-role="list-divider">Rate Courses</li>
-                </ul>
+            </div>
+            <div data-role="header" data-theme="e">
+                <h1>Rate Courses</h1>
+            </div>
+            <div data-role="content">
                 <label for="txtCourse">Course name:</label>
                 <input type="search" id="txtCourse" name="txtCourse" placeholder="ex. CPSC471" data-theme="a" />
                 <div id="results">

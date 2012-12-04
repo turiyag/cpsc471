@@ -17,8 +17,10 @@
                 
             </script>
             <?php include('header.php');?>
-            <div data-role="content">
+            <div data-role="header" data-theme="e">
                 <h3>Rate <?php echo $_GET['course']; ?></h3>
+            </div>
+            <div data-role="content">
                 <div id="results">
                     <a data-ajax="false" data-role="button" href="setrating?course=<?php echo $_GET['course']; ?>&rating=1"><img src="img/1star18.png" /></a>
                     <a data-ajax="false" data-role="button" href="setrating?course=<?php echo $_GET['course']; ?>&rating=2"><img src="img/2star18.png" /></a>

@@ -5,3 +5,11 @@
     overflow: visible;
     white-space: normal;
 }
+.ui-li .ui-btn-text  a.ui-link-inherit {
+    overflow: visible;
+    white-space: normal;
+}
+.ui-header .ui-title, .ui-footer .ui-title {
+    white-space: normal;
+    margin: 0.6em;
+}
