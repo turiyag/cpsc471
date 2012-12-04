@@ -80,11 +80,11 @@
             $res = $mysqli->query($query);
             //Report errors as they occur
             if (!($res)) {
-                print("<br />Error!");
+                print("<br />Error:" . $mysqli->error);
             }
-            /*
+            
             print("<p>$query</p>");
-            */
+            
         }
         
         function decodeentities($str) {

@@ -60,9 +60,9 @@
                         $query .= " WHERE user='" . $_SESSION['username'] . "'";
                         $result = $mysqli->query($query);
                         if($row = $result->fetch_assoc()) {
-                            echo '<li><a href="likepage?course=' . $row['course'] . '"><h3>' . $row['course'] . '</h3><div style="float:right; margin-top:-40px;"><img src="img/' . $row['stars'] . 'star.png" /></div></a></li>';
+                            echo '<li><a href="mycourse?course=' . $row['course'] . '"><h3>' . $row['course'] . '</h3><div style="float:right; margin-top:-28px;"><img src="img/' . $row['stars'] . 'star18.png" /></div></a></li>';
                             while ($row = $result->fetch_assoc()) {
-                                echo '<li><a href="likepage?course=' . $row['course'] . '"><h3>' . $row['course'] . '</h3><div style="float:right; margin-top:-40px;"><img src="img/' . $row['stars'] . 'star.png" /></div></a></li>';
+                                echo '<li><a href="mycourse?course=' . $row['course'] . '"><h3>' . $row['course'] . '</h3><div style="float:right; margin-top:-28px;"><img src="img/' . $row['stars'] . 'star18.png" /></div></a></li>';
                             }
                         } else {
                             echo '<li>No courses rated yet. Rate courses below.</li>';

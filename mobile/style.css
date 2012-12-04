@@ -1,3 +1,7 @@
 #txtCourse {
     text-transform: uppercase;
 }
+.ui-li-desc {
+    overflow: visible;
+    white-space: normal;
+}

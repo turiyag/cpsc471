@@ -20,12 +20,11 @@
             <div data-role="content">
                 <h3>Rate <?php echo $_GET['course']; ?></h3>
                 <div id="results">
-                    <a data-ajax="false" data-role="button" href="setrating?course=<?php echo $_GET['course']; ?>&rating=1"><img src="img/1star.png" /></a>
-                    <a data-ajax="false" data-role="button" href="setrating?course=<?php echo $_GET['course']; ?>&rating=2"><img src="img/2star.png" /></a>
-                    <a data-ajax="false" data-role="button" href="setrating?course=<?php echo $_GET['course']; ?>&rating=3"><img src="img/3star.png" /></a>
-                    <a data-ajax="false" data-role="button" href="setrating?course=<?php echo $_GET['course']; ?>&rating=4"><img src="img/4star.png" /></a>
-                    <a data-ajax="false" data-role="button" href="setrating?course=<?php echo $_GET['course']; ?>&rating=5"><img src="img/5star.png" /></a>
-                    <a data-ajax="false" data-role="button" data-icon="delete" data-theme="c" href="setrating?course=<?php echo $_GET['course']; ?>&rating=0">Remove course</a>
+                    <a data-ajax="false" data-role="button" href="setrating?course=<?php echo $_GET['course']; ?>&rating=1"><img src="img/1star18.png" /></a>
+                    <a data-ajax="false" data-role="button" href="setrating?course=<?php echo $_GET['course']; ?>&rating=2"><img src="img/2star18.png" /></a>
+                    <a data-ajax="false" data-role="button" href="setrating?course=<?php echo $_GET['course']; ?>&rating=3"><img src="img/3star18.png" /></a>
+                    <a data-ajax="false" data-role="button" href="setrating?course=<?php echo $_GET['course']; ?>&rating=4"><img src="img/4star18.png" /></a>
+                    <a data-ajax="false" data-role="button" href="setrating?course=<?php echo $_GET['course']; ?>&rating=5"><img src="img/5star18.png" /></a>
                 </div>
                 <div id="errorbox">
                 </div>
