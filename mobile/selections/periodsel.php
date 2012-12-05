@@ -2,7 +2,9 @@
     //session_start();
     //session_destroy();
     session_start();
+    $_SESSION['course'] = $_GET['course'];
     include('../sqli.php');
+    
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,7 +29,7 @@
                         //Get the list of all available semesters
                         //And store it in the string 'semesteroptions'  SELECT `key`, `type`, `number`, `room`, `instructor` FROM `periods` WHERE 1
                         $query = "SELECT `key`, `type`, `number`, `room`, `instructor` FROM `periods` WHERE `course`=";
-                        $query .= "'" . $_GET['semester'] . ':' . $_GET['course'] . "'";
+                        $query .= "'" . $_SESSION['semester'] . ':' . $_SESSION['course'] . "'";
                         $result = $mysqli->query($query);
                         //For the first result exists
                         if ($row = $result->fetch_assoc()) {

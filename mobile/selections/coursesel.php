@@ -2,6 +2,9 @@
     //session_start();
     //session_destroy();
     session_start();
+    if (isset($_GET['semester'])) {
+        $_SESSION['semester'] = $_GET['semester'];
+    }
     include('../sqli.php');
 ?>
 <!DOCTYPE html>
@@ -31,7 +34,7 @@
                         getReq = $.get('subjectlist', {'name':$('#txtCourse').val()}, function(courses) {
                             $("#coursesellist").empty();
                             $.each(courses,function(name, desc) {
-                                $("#coursesellist").append('<li><a href="periodsel?semester=<?php echo($_GET['semester']);?>&course=' + name + '"><h3>' + name + '</h3><p>' + desc + '</p></a></li>');
+                                $("#coursesellist").append('<li><a href="periodsel?course=' + name + '"><h3>' + name + '</h3><p>' + desc + '</p></a></li>');
                             });
                             $("#coursesellist").listview('refresh');
                         },"json");
@@ -41,6 +44,21 @@
                 }
             </script>
             <?php include('../header.php');?>
+            <?php if (isset($_SESSION['enrolmentmessage'])) { ?>
+                    <div data-role="header" data-theme="e">
+                        <h1>Message</h1>
+                    </div>
+                    <div data-role="content">
+                        <ul style="margin:20px 0px;" data-role="listview" data-theme="d">
+                            <li>
+                                <?php echo $_SESSION['enrolmentmessage']; ?>
+                            </li>
+                        </ul>
+                    </div>
+            <?php
+                    unset($_SESSION['enrolmentmessage']); 
+                }
+            ?>
             <div data-role="header" data-theme="e">
                 <h1>Select a course</h1>
             </div>
@@ -48,7 +66,7 @@
             <div data-role="header" data-theme="e">
                 <h1>
                     <?php
-                        echo($_GET['semester']);
+                        echo($_SESSION['semester']);
                     ?>
                 </h1>
             </div>
