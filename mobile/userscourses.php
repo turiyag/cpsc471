@@ -57,7 +57,7 @@
                     }
                 ?>
             <div data-role="header" data-theme="e">
-                <h1>My Course Ratings and My Course Ratings and My Course Ratings</h1>
+                <h1>My Course Ratings</h1>
             </div>
             <div data-role="content">
                 <ul style="margin:20px 0px;" data-role="listview">
