@@ -10,12 +10,11 @@
         <?php include('head.php'); ?>
     </head>
     <body>
-        <div id="login" data-role="page" data-theme="a">
+        <div id="semestersel" data-role="page" data-theme="a">
             <script>
-                $(document).delegate("#login", "pageinit", function() {
-                    <?php echo isset($_SESSION['loginerror']) ? "$(':password').focus();" : "$(':text').focus();"; ?>
-                
-                }
+                $(document).delegate("#semestersel", "pageinit", function() {
+        
+                });
             </script>
             <?php include('../header.php');?>
             <div data-role="header" data-theme="e">
@@ -34,11 +33,10 @@
                             do {
                                  $link = $row['semester'];
                                  $human = substr($row['semester'], 0, -4) . ' ' . substr($row['semester'],-4);
-                                 print('<li><a href="coursesel?semester="' . $link . '">' . $human . '</a></li>');
+                                 print('<li><a href="coursesel?semester=' . $link . '">' . $human . '</a></li>');
                             } while ($row = $result->fetch_assoc());
                         } else {
-                            //Die if there aren't any semesters
-                            die("Error: No courses present");
+                            print('<li>No semester could be found</li>');
                         }
                     ?>
                 </ul>
