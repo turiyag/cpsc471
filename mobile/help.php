@@ -18,11 +18,12 @@
                 </p>
             </div>
             <div data-role="header" data-theme="e">
-                <h1>Noah's Ark</h1>
+                <h1>What did you like</h1>
             </div>
             <div data-role="content">
                 <p>
-                    Noah's Ark is the big ship where you should go in the event of heavy rainfall. Don't leave the dinosaurs behind!
+                    This is the section were you rate courses you have taken in the range of 1-5 stars, with 5 stars being extremely loved and 1 star being least loved.
+                    
                 </p>
             </div>
             <?php include('footer.php'); ?>
