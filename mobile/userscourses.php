@@ -41,26 +41,26 @@
                 }
             </script>
             <?php include('header.php');?>
-                <?php if (isset($_SESSION['userscoursesmsg'])) { ?>
-                        <div data-role="header" data-theme="e">
-                            <h1>Message</h1>
-                        </div>
-                        <div data-role="content">
-                            <ul style="margin:20px 0px;" data-role="listview" data-theme="d">
-                                <li>
-                                    <?php echo $_SESSION['userscoursesmsg']; ?>
-                                </li>
-                            </ul>
-                        </div>
-                <?php
-                        unset($_SESSION['userscoursesmsg']); 
-                    }
-                ?>
+            <?php if (isset($_SESSION['userscoursesmsg'])) { ?>
+                    <div data-role="header" data-theme="e">
+                        <h1>Message</h1>
+                    </div>
+                    <div data-role="content">
+                        <ul style="margin:20px 0px;" data-role="listview" data-theme="d">
+                            <li>
+                                <?php echo $_SESSION['userscoursesmsg']; ?>
+                            </li>
+                        </ul>
+                    </div>
+            <?php
+                    unset($_SESSION['userscoursesmsg']); 
+                }
+            ?>
             <div data-role="header" data-theme="e">
                 <h1>My Course Ratings</h1>
             </div>
             <div data-role="content">
-                <ul style="margin:20px 0px;" data-role="listview">
+                <ul data-role="listview">
                     
                     <?php
                         $query = "SELECT u.course,u.stars,c.minidesc FROM userscourses AS u, coursereqs AS c";

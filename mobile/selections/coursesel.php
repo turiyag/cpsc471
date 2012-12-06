@@ -1,6 +1,4 @@
 <?php
-    //session_start();
-    //session_destroy();
     session_start();
     if (isset($_GET['semester'])) {
         $_SESSION['semester'] = $_GET['semester'];
@@ -59,10 +57,12 @@
                     unset($_SESSION['enrolmentmessage']); 
                 }
             ?>
+            <div data-role="content">
+                <a href="semestersel" data-role="button" data-icon="arrow-l">Select another semester</a>
+            </div>
             <div data-role="header" data-theme="e">
                 <h1>Select a course</h1>
             </div>
-
             <div data-role="header" data-theme="e">
                 <h1>
                     <?php
@@ -75,7 +75,7 @@
                 <label for="txtCourse">Course name:</label>
                 <input type="search" id="txtCourse" name="txtCourse" placeholder="ex. CPSC471" data-theme="a" />
                 <ul id="coursesellist" style="margin:20px 0px;" data-role="listview">
-                    <li> No courses selected search for a course above </li>
+                    <li data-theme="e">No courses selected. Search for a course above.</li>
                 </ul>
             </div>
             <?php include('../footer.php'); ?>
