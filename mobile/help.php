@@ -25,14 +25,14 @@
                     This is the section where you rate courses you have taken in the range of 1-5 stars, with 5 stars being extremely loved and 1 star being least loved.
                 </p>
             </div>
-			<div data-role="header" data-theme="e">
-				<h1>Course Selector</h1>
-			</div>
-			<div data-role="content">
-				<p>
-					You select the courses you wish to take this section.
-				</p>
-			</div>
+            <div data-role="header" data-theme="e">
+                <h1>Course Selector</h1>
+            </div>
+            <div data-role="content">
+                <p>
+                    You select the courses you wish to take this section.
+                </p>
+            </div>
             <?php include('footer.php'); ?>
         </div>
     </body>
