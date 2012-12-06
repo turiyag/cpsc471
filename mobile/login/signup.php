@@ -1,7 +1,5 @@
 <?php
     session_start();
-    session_destroy();
-    session_start();
     include('../sqli.php');
 ?>
 <!DOCTYPE html>
@@ -12,7 +10,15 @@
     <body>
         <div id="signup" data-role="page" data-theme="e">
             <script>
-                $(document).delegate("#login", "pageinit", function() {
+                $(document).delegate("#signup", "pageinit", function() {
+                    $(":input").keyup(function() {
+                        if ($("#txtPassword").val() == $("#txtPassword2").val() && $("#txtUsername").val() != "" && $("#txtEmail").val() != "" && $("#txtTel").val() != "" && $("#txtPassword").val() != "") {
+                            $('#signupbtn').button('enable'); 
+                        } else {
+                            $('#signupbtn').button('disable'); 
+                        }
+                    });
+                    $('#signupbtn').button('disable'); 
                 });
             </script>
             <?php include('../header.php');?>
@@ -37,7 +43,9 @@
                     <input type="tel" id="txtTel" name="tel" placeholder="telephone #" />
                     <label for="txtPassword">Password:</label>
                     <input type="password" id="txtPassword" name="password" placeholder="password" />
-                    <button>Sign up</button>
+                    <label for="txtPassword2">Retype Password:</label>
+                    <input type="password" id="txtPassword2" name="txtPassword2" placeholder="password" />
+                    <button id="signupbtn" data-theme="d">Sign up</button>
                 </form>
             </div>
             <?php include('../footer.php'); ?>

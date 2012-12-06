@@ -1,6 +1,4 @@
 <?php
-    //session_start();
-    //session_destroy();
     session_start();
     include('../sqli.php');
 ?>
@@ -46,7 +44,7 @@
                         <br />
                         <br />
                         <p>Not a member?</p>
-                        <a data-role="button" href="signup" data-theme="e">Sign up</a>
+                        <a data-role="button" href="signup" data-theme="d" data-ajax="false">Sign up</a>
                 <?php
                     } else {
                 ?>

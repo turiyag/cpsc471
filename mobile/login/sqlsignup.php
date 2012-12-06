@@ -16,7 +16,10 @@
             $vals[] = $mysqli->real_escape_string($_POST['tel']);
             $vals[] = sha1($_POST['password']);
             insertRow("users", array("username","email","tel","password"), $vals);
-            header('Location: http://' . $_SERVER['HTTP_HOST'] . '/projects/cpsc471project/mobile/login');
+            $_SESSION['username'] = $_POST['username'];
+            $_SESSION['password'] = sha1($mysqli->real_escape_string($_POST['password']));
+            $_SESSION['loggedin'] = true;
+            signupSuccess();
         }
     } else {
         signupError("Not all fields specified");
@@ -25,6 +28,11 @@
     function signupError($err) {
         $_SESSION['signuperror'] = $err;
         header('Location: http://' . $_SERVER['HTTP_HOST'] . '/projects/cpsc471project/mobile/login/signup');
+        exit();
+    }
+    function signupSuccess() {
+        $_SESSION['signupmsg'] = "Signed up as " . $_SESSION['username'] . ".";
+        header('Location: http://' . $_SERVER['HTTP_HOST'] . '/projects/cpsc471project/mobile/');
         exit();
     }
 ?>
