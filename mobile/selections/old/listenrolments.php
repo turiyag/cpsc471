@@ -8,16 +8,13 @@
         <?php include('head.php'); ?>
     </head>
     <body>
-        <div id="enrollments" data-role="page" data-theme="a">
+        <div id="semestersel" data-role="page" data-theme="a">
             <script>
-                $(document).delegate("#enrollments", "pageinit", function() {
+                $(document).delegate("#semestersel", "pageinit", function() {
         
                 });
             </script>
             <?php include('../header.php');?>
-            <div data-role="content">
-                <a href="semestersel" data-role="button" data-theme="d">Enroll in a course</a>
-            </div>
             <div data-role="header" data-theme="e">
                 <h1>My enrolments</h1>
             </div>
@@ -82,7 +79,3 @@
                     ?>
                 </ul>
             </div>
-            <?php include('../footer.php'); ?>
-        </div>
-    </body>
-</html>

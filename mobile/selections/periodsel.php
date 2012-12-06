@@ -2,7 +2,9 @@
     //session_start();
     //session_destroy();
     session_start();
-    $_SESSION['course'] = $_GET['course'];
+    if (isset($_GET['course'])) {
+        $_SESSION['course'] = $_GET['course'];
+    }
     include('../sqli.php');
     
 ?>
@@ -19,8 +21,36 @@
                 });
             </script>
             <?php include('../header.php');?>
+            <div data-role="content">
+                <a href="coursesel" data-role="button" data-icon="arrow-l">Select another course</a>
+            </div>
             <div data-role="header" data-theme="e">
-                <h1>Select a period</h1>
+                <h1>Course Information</h1>
+            </div>
+
+            <div data-role="content">
+                <ul data-role="listview">
+                    <?php
+                        $query = "SELECT * FROM coursereqs WHERE course='" . $mysqli->real_escape_string($_SESSION['course']) . "'";
+                        $result = $mysqli->query($query);
+                        if($row = $result->fetch_assoc()) {
+                            liIfSet('Summary',$row['minidesc']);
+                            liIfSet('Description',$row['desc']);
+                            liIfSet('Prerequisites',$row['prereq']);
+                            liIfSet('Corequisites',$row['coreq']);
+                            liIfSet('Antirequisites',$row['antireq']);
+                            liIfSet('Notes',$row['note']);
+                            liIfSet('Also Known As',$row['aka']);
+                            liIfSet('Repeatable',$row['repeat']);
+                            liIfSet('WARNING',$row['nogpa']);
+                        } else {
+                            echo '<li>Course could not be found</li>';
+                        }
+                    ?>
+                </ul>
+            </div>
+            <div data-role="header" data-theme="e">
+                <h1>Period Enrolment</h1>
             </div>
 
             <div data-role="content">
@@ -49,3 +79,12 @@
         </div>
     </body>
 </html>
+<?php
+    function liIfSet($head, $data) {
+        if (isset($data)) {
+            if ($data != "") {
+                echo '<li data-theme="e"><h3>' . $head . '</h3><p>' . $data . '</p></li>';
+            }
+        }
+    }
+?>

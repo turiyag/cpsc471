@@ -2,7 +2,10 @@
     //session_start();
     //session_destroy();
     session_start();
-    $_SESSION['period'] = $_GET['key'];
+    
+    if (isset($_GET['key'])) {
+        $_SESSION['period'] = $_GET['key'];
+    }
     include('../sqli.php');
 ?>
 <!DOCTYPE html>
@@ -18,6 +21,9 @@
                 });
             </script>
             <?php include('../header.php');?>
+            <div data-role="content">
+                <a href="periodsel" data-role="button" data-icon="arrow-l">Select another period</a>
+            </div>
             <div data-role="header" data-theme="e">
                 <h1>Times for selected period</h1>
             </div>
